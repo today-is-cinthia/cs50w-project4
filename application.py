@@ -7,7 +7,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from dotenv import load_dotenv
 from werkzeug.security import check_password_hash, generate_password_hash
 from loginrequired import login_required
-import requests
 import json
 
 app = Flask(__name__)
@@ -30,7 +29,15 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/login",methods=["GET", "POST"])
+def login():
+    return redirect("/")
 
-@app.route("/register")
-def index():
+
+@app.route("/register",methods=["GET", "POST"])
+def register():
     return render_template("register.html")
+
+@app.route("/quizzes")
+def quizzes():
+    return render_template("quizzes.html")
