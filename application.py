@@ -41,3 +41,15 @@ def register():
 @app.route("/quizzes")
 def quizzes():
     return render_template("quizzes.html")
+
+@app.route("/contactus")
+def contactus():
+    return render_template("contactus.html")
+    
+@app.route("/aboutus")
+def aboutus():
+    return render_template("aboutus.html")
+
+@app.route("/reviews")
+def reviews():
+    return render_template("reviews.html")
