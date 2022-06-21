@@ -9,9 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body  style="background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,0.8875722163865546) 33%, rgba(14,52,121,0.39457501750700286) 51%, rgba(14,16,76,0.47580751050420167) 71%);">
     <form action="/register" method="post">
-        <div style="height: 100vh;" class=" bg-gray-100  min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div style="height: 100vh;" class="   min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-md w-full space-y-8">
                 <div>
                     <img class="mx-auto h-16 w-auto" src="/static/pixlr-bg-result.png" alt="Workflow">
@@ -25,7 +26,7 @@
                     <div class="rounded-md shadow-sm -space-y-px">
                         <div>
                             <label for="username" class="sr-only">Username</label>
-                            <input id="username" name="email" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            <input id="username" name="username" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Username">
                         </div>
                         <div>
@@ -48,13 +49,6 @@
                 </span>
                 Register
               </button>
-                        <br>
-                        <center>
-                            <div class="text-sm">
-                                Already <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Register</a>
-                            </div>
-                        </center>
-                    </div>
                 </form>
             </div>
         </div>

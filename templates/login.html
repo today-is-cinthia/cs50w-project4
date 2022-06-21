@@ -9,13 +9,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body style="background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,0.8875722163865546) 33%, rgba(14,52,121,0.39457501750700286) 51%, rgba(14,16,76,0.47580751050420167) 71%);">
     <form action="/login" method="post">
-        <div class=" bg-gray-100  min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        {% if get_flashed_messages() %}
+        <header>
+          <br><div style="font-family: 'Rubik Bubbles', cursive; width: 500px;" class="alert alert-danger" role="alert">
+            {{ get_flashed_messages() | join(" ") }}
+          </div>
+        </header>
+        {% endif %}
+        <br><br><div class=" min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-md w-full space-y-8">
                 <div>
-                    <img class="mx-auto h-16 w-auto" src="https://c1.klipartz.com/pngpicture/608/21/sticker-png-apple-logo-carbon-copy-cloner-backup-macos-copying-computer-software-cloning-hard-drives.png" alt="Workflow">
-                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+                    <img class="mx-auto h-16 w-auto" src="/static/pixlr-bg-result.png" alt="Workflow">
+                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Log in to your account</h2>
                     <p class="mt-2 text-center text-sm text-gray-600">
                         <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> to review even more quizzes! </a>
                     </p>
@@ -43,14 +51,9 @@
                         <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                       </svg>
                     </span>
-                    Sign in
+                    Log In
                   </button>
-                        <br>
-                        <center>
-                            <div class="text-sm">
-                                Do not own an account? <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Register</a>
-                            </div>
-                        </center><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br>
                     </div>
                 </form>
             </div>
