@@ -1,11 +1,12 @@
 {% extends "layout.html" %} {% block title %} HOME {% endblock %} {% block body %}
+{% for i in test %}
 <section class="text-gray-600 body-font overflow-hidden">
     <div class="container px-5 py-24 mx-auto">
       <div class="lg:w-4/5 mx-auto flex flex-wrap">
-        <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/10/27/5fa53c8a5f7b4.jpeg">
+        <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{i.imagen}}">
         <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-          <h2 class="text-sm title-font text-gray-500 tracking-widest">Science</h2>
-          <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">ADN casino</h1>
+          <h2 class="text-sm title-font text-gray-500 tracking-widest">{{i.categoria}}</h2>
+          <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{i.nombre}}</h1>
           <div class="flex mb-4">
             <span class="flex items-center">
               <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
@@ -44,16 +45,18 @@
             </span>
           </div>
           <p class="leading-relaxed">A knowledge challenging science test! Are you ready to prove on test how much do you know about ADN? Good luck trying to score more than 17 points!</p>
+          
+          <form action="/reviews/{{i.id}}" method="post"></form>
           <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
             <div class="flex ml-6 items-center">
               <span class="mr-3">Rate</span>
               <div class="relative">
-                <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
-                  <option>⭐</option>
-                  <option>⭐⭐</option>
-                  <option>⭐⭐⭐</option>
-                  <option>⭐⭐⭐⭐</option>
-                  <option>⭐⭐⭐⭐⭐</option>
+                <select name="rating" class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+                  <option value=1>⭐</option>
+                  <option value=2>⭐⭐</option>
+                  <option value=3>⭐⭐⭐</option>
+                  <option value=4>⭐⭐⭐⭐</option>
+                  <option value=5>⭐⭐⭐⭐⭐</option>
                 </select>
                 <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                   <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
@@ -77,7 +80,7 @@
           <div class="p-2 w-full">
             <div class="relative">
               <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-              <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              <textarea id="comentario" name="comentario" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
             </div>
           </div>
           <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Done</button>
@@ -86,4 +89,5 @@
     </div>
     
   </section>
+  {% endfor %}
 {% endblock %}

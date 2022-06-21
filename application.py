@@ -32,6 +32,12 @@ def index():
 def home():
     return render_template("home.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash('You succesfully logged out')
+    return redirect("/")
+
 
 @app.route("/login",methods=["GET", "POST"])
 def login():
@@ -48,7 +54,7 @@ def login():
 
         session["user_id"] = rows[0]["id"]
 
-        return redirect("/levels")
+        return redirect("/home")
     else:
         return render_template("login.html")
     return render_template("login.html")
@@ -84,7 +90,14 @@ def register():
 @app.route("/quizzes")
 @login_required
 def quizzes():
-    return render_template("quizzes.html")
+    query = db.execute("SELECT * FROM test")
+    return render_template("quizzes.html", query=query)
+
+@app.route("/search/<categoria>")
+def search(categoria):
+    busqueda = db.execute("SELECT * FROM test WHERE categoria=:categoria", {"categoria": categoria}).fetchall()
+    return render_template("categorias.html", busqueda=busqueda)
+
 
 @app.route("/contactus")
 @login_required
@@ -96,7 +109,11 @@ def contactus():
 def aboutus():
     return render_template("aboutus.html")
 
-@app.route("/reviews")
+@app.route("/reviews/<id>")
 @login_required
-def reviews():
-    return render_template("reviews.html")
+def reviews(id):
+    test = db.execute("SELECT * FROM test WHERE id=:id", {"id":id})
+    if request.method == "POST":
+        rating = int(request.form.get("rating"))
+        comentario = request.form.get("comentario")
+    return render_template("reviews.html", test=test)
