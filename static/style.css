@@ -4,3 +4,15 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+#contenedor{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 5px;
+    width: 200%;
+}
+
+#contenedor > div {
+    padding: .5em;
+
+  }
