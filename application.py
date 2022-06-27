@@ -109,11 +109,20 @@ def contactus():
 def aboutus():
     return render_template("aboutus.html")
 
-@app.route("/reviews/<id>")
+@app.route("/reviews/<id>", methods=["GET", "POST"])
 @login_required
 def reviews(id):
     test = db.execute("SELECT * FROM test WHERE id=:id", {"id":id})
     if request.method == "POST":
         rating = int(request.form.get("rating"))
         comentario = request.form.get("comentario")
-    return render_template("reviews.html", test=test)
+        db.execute("INSERT INTO reviews (comentario, rating, id_test, id_user) VALUES (:comentario, :rating, :id_test, :id)",
+            { "comentario": comentario, "rating": rating, "id_test": id, "id": session["user_id"]})
+        db.commit()
+        return redirect('/reviews/'+id)
+    else:
+        query = db.execute("SELECT users.usuario, comentario, rating FROM users \
+         INNER JOIN reviews ON users.id = reviews.id_user WHERE id_test = :id_test", {"id_test": id})
+        reseñas = query.fetchall()
+
+    return render_template("reviews.html", test=test, reseñas=reseñas, id=id)

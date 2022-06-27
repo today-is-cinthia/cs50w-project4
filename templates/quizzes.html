@@ -23,7 +23,7 @@
 
 <div class="w-full min-h-screen bg-blue-50 p-6">
   {% for i in query %}
-  <div class="flex flex-wrap justify-center">
+  <div class="flex flex-wrap -m-4 justify-center">
 
     <div class="flex flex-col bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52">
 
@@ -31,7 +31,7 @@
         <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{i.categoria}}</h2>
         <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{i.nombre}}</h1>
 
-        <a href="#" class="bg-blue-500 text-white p-3 text-center hover:bg-blue-800 transition-all duration-500">Know More</a>
+        <a href="/reviews/{{i.id}}" class="bg-blue-500 text-white p-3 text-center hover:bg-blue-800 transition-all duration-500">Know More</a>
 
     </div>
 
