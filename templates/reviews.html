@@ -45,7 +45,7 @@
               </a>
             </span>
           </div>
-          <p class="leading-relaxed">A knowledge challenging science test! Are you ready to prove on test how much do you know about ADN? Good luck trying to score more than 17 points!</p>
+          <p class="leading-relaxed">{{i.descripcion}}</p>
           
           <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
             <div class="flex ml-6 items-center">
@@ -104,14 +104,16 @@
                   <img alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
                   <span class="flex-grow flex flex-col pl-4">
                     <span class="title-font font-medium text-gray-900">{{i.usuario}}</span>
-                    <span class="text-gray-500 text-sm">{{i.rating}}</span>
+                    <span class="text-gray-500 text-sm">{{i.rating}} ⭐ Stars</span>
                   </span>
-                  <p id="date"></p>
                 </a>
               </div>
             </div>
           </div>
           {% endfor %}
+          {% if not reseñas %}
+         <br><center><h1>There's no comments on this test yet</h1></center> 
+          {% endif %}
         </div>
       </section>
   {% endfor %}
