@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 from werkzeug.security import check_password_hash, generate_password_hash
 from loginrequired import login_required
 import json
-from datetime import datetime
 
 app = Flask(__name__)
 
@@ -114,7 +113,6 @@ def aboutus():
 @login_required
 def reviews(id):
     test = db.execute("SELECT * FROM test WHERE id=:id", {"id":id})
-    time = datetime.now()
     if request.method == "POST":
         rating = int(request.form.get("rating"))
         comentario = request.form.get("comentario")
@@ -127,4 +125,4 @@ def reviews(id):
          INNER JOIN reviews ON users.id = reviews.id_user WHERE id_test = :id_test", {"id_test": id})
         reseñas = query.fetchall()
 
-    return render_template("reviews.html", test=test, reseñas=reseñas, time=time)
+    return render_template("reviews.html", test=test, reseñas=reseñas)
