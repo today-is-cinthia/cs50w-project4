@@ -129,4 +129,10 @@ def reviews(id):
 
 @app.route("/play/<id>")
 def play(id):
-    return render_template("play.html")
+    pregunta = db.execute("SELECT * FROM cuestionario WHERE id_test=:id_test", {"id_test":id})
+    id_pregunta = db.execute("SELECT id FROM cuestionario WHERE id_test=:id_test",{"id_test": id}).fetchone()
+    if id_pregunta is not None:
+        id_pregunta = id_pregunta[0]
+    print(id_pregunta)
+    respuesta = db.execute("SELECT * FROM respuestas WHERE id_pregunta=:id_pregunta",{"id_pregunta":id_pregunta})
+    return render_template("play.html", pregunta=pregunta, respuesta=respuesta)

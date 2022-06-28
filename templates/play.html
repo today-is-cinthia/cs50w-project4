@@ -1,7 +1,19 @@
 {% extends "layout.html" %} {% block title %} HOME {% endblock %} {% block body %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
-<div class="start_btn"><button>Start Quiz</button></div>
+
+<div class="container">
+<section id="p0">
+    {% for i in pregunta %}
+    <h3>{{i.pregunta1}}</h3>
+    <label>
+        <input type="radio">
+    </label>
+    {% endfor %}
+</section>
+</div>
+
+<!--<div class="start_btn"><button>Start Quiz</button></div>
 
 <div class="info_box">
     <div class="info-title"><span>Some Rules of this Quiz</span></div>
@@ -50,5 +62,5 @@
         <button class="quit">Quit Quiz</button>
     </div>
 </div>
-
+-->
 {% endblock %}
