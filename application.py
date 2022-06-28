@@ -126,3 +126,7 @@ def reviews(id):
         reseñas = query.fetchall()
 
     return render_template("reviews.html", test=test, reseñas=reseñas)
+
+@app.route("/play/<id>")
+def play(id):
+    return render_template("play.html")
