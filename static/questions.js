@@ -24,68 +24,68 @@ let questions8 = [
   },
     {
     numb: 3,
-    question: "",
-    answer: "Como una bebida que le daba a los hombres la energía que necesitaban para un día de marcha",
+    question: "Which of the following is termed as an important hormone to promote long-lasting relationships?	    ",
+    answer: "Vassopresin    ",
     options: [
-      "Como un ungüento medicinal",
-      "Como una bebida que le daba a los hombres la energía que necesitaban para un día de marcha",
-      "Como el elixir de la eterna juventud",
-      "Como el alimento que solo tomaban las clases altas de la sociedad maya"
+      "Vassopresin      ",
+      "Oxytocin",
+      "Serotonin",
+      "Dopamin"
     ]
   },
     {
     numb: 4,
-    question: "¿CUÁL ES EL SABOR ORIGINAL DEL CACAO?",
-    answer: "Amargo",
+    question: "_______________ is one of the most important chemicals that explains why we fall in love	    ",
+    answer: "Serotonin	    ",
     options: [
-      "Dulce",
-      "Salado",
-      "Amargo",
-      "Ácido"
+      "Endorphins",
+      "Noradrenaline",
+      "Serotonin",
+      "Oxytocin"
     ]
   },
     {
     numb: 5,
-    question: "¿QUÉ INVENTARON HENRY NESTLÉ Y DANIEL PETER EN 1875 QUE CAMBIÓ LA HISTORIA DEL CHOCOLATE? ",
-    answer: "El chocolate con leche",
+    question: "_________ helps build a strong bond between a mother and an infant during the time of birth.    ",
+    answer: "Oxytocin	    ",
     options: [
-      "La tableta de chocolate tal y como hoy la conocemos",
-      "El chocolate blanco",
-      "El chocolate con avellanas",
-      "El chocolate con leche"
+      "Neurotransmitters",
+      "Oxytocin	      ",
+      "Dopamine",
+      "What?"
     ]
   },
   {
     numb: 6,
-    question: "¿CUÁL ES EL PRINCIPAL HITO DE LA CANCIÓN 'PAQUITO EL CHOCOLATERO'?    ",
-    answer: "Es la canción en español más versionada e interpretada en vivo    ",
+    question: "Which of the following  is  also known as the cuddle hormone?	    ",
+    answer: "Oxytocin	    ",
     options: [
-      "Es la canción en español más versionada e interpretada en vivo      ",
-      "Es la primera canción en tener una coreografía registrada      ",
-      "Fue el primer himno del Club Deportivo Alcoyano      ",
-      "Fue la primera canción compuesta en España que abrió un 'Baile de la Rosa'      "
+      "I want cuddles",
+      "True",
+      "Oxytocin ",
+      "Serotonin "
     ]
   },
   {
     numb: 7,
-    question: "¿CUÁL ES EL ORIGEN DE LA PALABRA 'BOMBÓN'?    ",
-    answer: "La adaptación del francés 'bonbon', que quiere decir dos veces bueno    ",
+    question: "Which of these is not a stage in falling in love?	    ",
+    answer: "Addiction",
     options: [
-      "El mote cariñoso con el que Luis XIV llamaba a su hija María Teresa      ",
-      "La adaptación del francés 'bonbon', que quiere decir dos veces bueno      ",
-      "Era el nombre de la primera chocolatería abierta en París en 1563      ",
-      "La forma en la que los mayas llamaban a las pequeñas piezas de cacao      "
+      "Addiction",
+      "Lust",
+      "Attraction ",
+      "Attachment"
     ]
   },
   {
     numb: 8,
-    question: "¿QUÉ ESPECIALIDAD DE LA GASTRONOMÍA MEXICANA TIENE COMO INGREDIENTE ESTRELLA EL CHOCOLATE    ",
-    answer: "",
+    question: "How many stages are in the process of falling in love according to science?	    ",
+    answer: "Three stages	    ",
     options: [
-      "Los bombones de Tequila      ",
-      "Las enchiladas de carne      ",
-      "El pan de elote      ",
-      "El mole poblano      "
+      "Four stages	      ",
+      "Two stages	      ",
+      "Six stages	      ",
+      "Three stages	      "
     ]
   },
   {

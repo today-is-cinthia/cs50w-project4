@@ -114,6 +114,9 @@ def aboutus():
 @login_required
 def reviews(id):
     test = db.execute("SELECT * FROM test WHERE id=:id", {"id":id})
+    idcomentario= db.execute("SELECT id FROM reviews WHERE id_test =:id_test AND id_user=:id_user", {"id_test": id, "id_user":session["user_id"]}).fetchone()
+    if idcomentario is not None:
+        idcomentario = idcomentario[0]
     if request.method == "POST":
         rating = int(request.form.get("rating"))
         comentario = request.form.get("comentario")
@@ -126,7 +129,7 @@ def reviews(id):
          INNER JOIN reviews ON users.id = reviews.id_user WHERE id_test = :id_test", {"id_test": id})
         reseñas = query.fetchall()
 
-    return render_template("reviews.html", test=test, reseñas=reseñas)
+    return render_template("reviews.html", test=test, reseñas=reseñas, idcomentario=idcomentario, id=id)
 
 @app.route("/play/<id>")
 def play(id):
@@ -144,3 +147,9 @@ def play(id):
 
     test = db.execute("SELECT * FROM test WHERE id=:id", {"id":id})
     return render_template("play.html", pregunta=preguntas, respuesta=respuesta, nom=test, id=id)
+
+@app.route("/remove/<id><id_test>")
+def remove(id, id_test):
+    db.execute("DELETE FROM reviews WHERE id=:id", {"id":id})
+    db.commit()
+    return redirect('/reviews/' + id_test)
