@@ -50,7 +50,6 @@ body{
 }
 
 .info_box{
-    width: 540px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -381,3 +380,24 @@ footer button.show{
     color: #fff;
     background: #007bff;
 }
+
+
+@media (min-width: 500px) {
+    .info_box{
+        width: 540px;
+    }
+    .quiz_box{
+        margin-top: 5%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .info_box,.result_box{
+        width: 340px;
+        margin-top: 20%;
+    }
+    .quiz_box{
+        width: 340px;
+        margin-top: 40%;
+    }
+  }
