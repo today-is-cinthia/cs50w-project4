@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, session, flash, redirect, render_template, request, session, url_for, jsonify
+from flask_socketio import SocketIO, emit, send
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -129,10 +130,17 @@ def reviews(id):
 
 @app.route("/play/<id>")
 def play(id):
-    pregunta = db.execute("SELECT * FROM cuestionario WHERE id_test=:id_test", {"id_test":id})
+    pregunta = db.execute("SELECT * FROM cuestionario WHERE id_test=:id_test", {"id_test":id}).fetchall()
     id_pregunta = db.execute("SELECT id FROM cuestionario WHERE id_test=:id_test",{"id_test": id}).fetchone()
     if id_pregunta is not None:
         id_pregunta = id_pregunta[0]
     print(id_pregunta)
     respuesta = db.execute("SELECT * FROM respuestas WHERE id_pregunta=:id_pregunta",{"id_pregunta":id_pregunta})
-    return render_template("play.html", pregunta=pregunta, respuesta=respuesta)
+
+    preguntas = list()
+    for i in pregunta:
+        preguntas.append(i)
+    print(preguntas)
+
+    test = db.execute("SELECT * FROM test WHERE id=:id", {"id":id})
+    return render_template("play.html", pregunta=preguntas, respuesta=respuesta, nom=test, id=id)
