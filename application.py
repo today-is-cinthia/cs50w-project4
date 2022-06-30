@@ -1,4 +1,7 @@
+import email
+from email import message
 import os
+from unicodedata import name
 
 from flask import Flask, session, flash, redirect, render_template, request, session, url_for, jsonify
 from flask_socketio import SocketIO, emit, send
@@ -100,9 +103,15 @@ def search(categoria):
     return render_template("categorias.html", busqueda=busqueda)
 
 
-@app.route("/contactus")
+@app.route("/contactus", methods=["GET", "POST"])
 @login_required
 def contactus():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        message = request.form.get("message")
+
+        db.execute("")
     return render_template("contactus.html")
     
 @app.route("/aboutus")
@@ -152,4 +161,8 @@ def play(id):
 def remove(id, id_test):
     db.execute("DELETE FROM reviews WHERE id=:id", {"id":id})
     db.commit()
+    return redirect('/reviews/' + id_test)
+
+@app.route("/edit/<id><id_test>",  methods=["GET", "POST"])
+def edit(id, id_test):
     return redirect('/reviews/' + id_test)
