@@ -1,7 +1,42 @@
-{% extends "layout.html" %} {% block title %} HOME {% endblock %} {% block body %}
-<link rel="stylesheet" href="/static/quiz.css" />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CQUIZZ</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    <script src="https://kit.fontawesome.com/60f66db414.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/quiz.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+
+<body class="bg-blue-50">
+    <header style="background-color:#5f2a83 ; color: antiquewhite;" class=" body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a href="/home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <img class="mx-auto h-16 w-auto" src="/static/pixlr-bg-result.png" alt="Workflow">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span style="color: antiquewhite;" class="ml-3 text-xl">CQUIZZ</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a href="/quizzes" class="mr-5 hover:text-gray-900">QUIZZES</a>
+            <a href="/contactus" class="mr-5 hover:text-gray-900">CONTACT US</a>
+            <a href="/aboutus" class="mr-5 hover:text-gray-900">ABOUT US</a>
+          </nav>
+          <a href="/logout"><button style="color: grey;" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log Out
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button></a>
+        </div>
+      </header>
 
 <input type="hidden" id="id_test" value={{id}}>
 
@@ -63,4 +98,5 @@
     <script src="/static/prueba.js"></script>
     
     <script src="/static/quiz.js"></script>
-{% endblock %}
+</body>
+</html>

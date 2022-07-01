@@ -111,7 +111,7 @@ def contactus():
         email = request.form.get("email")
         message = request.form.get("message")
 
-        db.execute("")
+        db.execute("IN")
     return render_template("contactus.html")
     
 @app.route("/aboutus")
@@ -126,6 +126,7 @@ def reviews(id):
     idcomentario= db.execute("SELECT id FROM reviews WHERE id_test =:id_test AND id_user=:id_user", {"id_test": id, "id_user":session["user_id"]}).fetchone()
     if idcomentario is not None:
         idcomentario = idcomentario[0]
+
     if request.method == "POST":
         rating = int(request.form.get("rating"))
         comentario = request.form.get("comentario")
@@ -165,4 +166,9 @@ def remove(id, id_test):
 
 @app.route("/edit/<id><id_test>",  methods=["GET", "POST"])
 def edit(id, id_test):
+    if request.method == "POST":
+        edit = request.form.get("editcoment")
+        rating = int(request.form.get("rating"))
+        db.execute("UPDATE reviews SET comentario =:edit, rating=:rating WHERE id=:id AND id_test=:id_test",{"edit": edit, "rating":rating,"id":id, "id_test":id_test})
+        db.commit()
     return redirect('/reviews/' + id_test)

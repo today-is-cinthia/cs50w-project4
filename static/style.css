@@ -16,3 +16,10 @@
     padding: .5em;
 
   }
+
+  @media (min-width: 500px) {
+
+    #contenido{
+        width: 600px;
+    }
+  }

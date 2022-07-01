@@ -339,3 +339,117 @@ let questions7 = [
   ]
 },
 ];
+
+
+let questions6 = [
+  {
+  numb: 1,
+  question: " How many grammy´s has Taylor Swift won?",
+  answer: "10",
+  options: [
+    "5",
+    "10",
+    "8",
+    "4"
+  ]
+},
+  {
+  numb: 2,
+  question: "Which band has the most awards in history? Hint: They have 22 grammys!",
+  answer: "U2",
+  options: [
+    "Metallica",
+    "U2",
+    "Dixie Chicks",
+    "Foo Fighters"
+  ]
+},
+  {
+  numb: 3,
+  question: "Which artists wrote 'Party In The US' by Miley Cyrus?",
+  answer: "Jessie J",
+  options: [
+    "Pharrel Williams",
+    "Sia",
+    "Julia Michaels",
+    "Jessie J"
+  ]
+},
+  {
+  numb: 4,
+  question: "When did Beyonce debut as a soloist?",
+  answer: "2003",
+  options: [
+    "2001",
+    "2002",
+    "2003",
+    "2004"
+  ]
+},
+  {
+  numb: 5,
+  question: "For which artist was 'Come & Get It' by Selena Gomez written for initially?",
+  answer: "Rihanna",
+  options: [
+    "Miley Cyrus",
+    "Rihanna",
+    "Beyoncé",
+    "Lady Gaga"
+  ]
+},
+{
+  numb: 6,
+  question: "Which was the first Ed Sheerans hit?",
+  answer: "The A team",
+  options: [
+    "The A team",
+    "Lego House",
+    "Afire Love",
+    "Small Bump"
+  ]
+},
+{
+  numb: 7,
+  question: "Who was 'I Kissed a Girl' by Katy Perry inspired in?",
+  answer: "Miley Cyrus",
+  options: [
+    "Rihanna",
+    "Kesha",
+    "Lady Gaga",
+    "Miley Cyrus"
+  ]
+},
+{
+  numb: 8,
+  question: "Which is the song that stayed the most time in the top 1 on US charts",
+  answer: "'Old Town Road' by Lil Nas X",
+  options: [
+    "'Someone Like You' by Adele",
+    "'Old Town Road' by Lil Nas X",
+    "'Thinking Out Loud' by Ed Sheeran",
+    "'Don't Stop Believing' by Journey"
+  ]
+},
+{
+  numb: 9,
+  question: "Which of this popular artists has never won a Grammy?",
+  answer: "Katy Perry",
+  options: [
+    "Dua Lipa",
+    "Rihanna",
+    "Justin Bieber",
+    "Katy Perry"
+  ]
+},
+{
+  numb: 10,
+  question: "Which was the most popular wedding song of 2019 according to Spotify?",
+  answer: "'Thinking Out Loud' by Ed Sheeran",
+  options: [
+    "'Marry You' by Bruno Mars",
+    "'Perfect' by Ed Sheeran",
+    "'Thinking Out Loud' by Ed Sheeran",
+    "'All Of Me' by John Legend"
+  ]
+},
+];

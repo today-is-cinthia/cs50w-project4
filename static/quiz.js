@@ -11,6 +11,7 @@ const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 const id = document.querySelector("#id_test").value
 
+
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo"); //show info box
@@ -105,7 +106,7 @@ next_btn.onclick = ()=>{
             clearInterval(counterLine);
             showResult(); //showResult function
         }}
-        if(id == 7){
+    if(id == 7){
             if(que_count < questions7.length - 1){
                 que_count++; 
                 que_numb++; 
@@ -121,7 +122,24 @@ next_btn.onclick = ()=>{
                 clearInterval(counter); 
                 clearInterval(counterLine); 
                 showResult(); //showResult function
-            }}
+    }}
+    if(id == 6){
+        if(que_count < questions6.length - 1){
+            que_count++; 
+            que_numb++; 
+            showQuetions(que_count); 
+            queCounter(que_numb); 
+            clearInterval(counter); 
+            clearInterval(counterLine); 
+            startTimer(timeValue); 
+            startTimerLine(widthValue); 
+            timeText.textContent = "Time Left"; 
+            next_btn.classList.remove("show"); 
+        }else{
+            clearInterval(counter); 
+            clearInterval(counterLine); 
+            showResult(); //showResult function
+        }}
 }
 
 
@@ -164,6 +182,22 @@ if(id == 7){
     + '<div class="option"><span>'+ questions7[index].options[1] +'</span></div>'
     + '<div class="option"><span>'+ questions7[index].options[2] +'</span></div>'
     + '<div class="option"><span>'+ questions7[index].options[3] +'</span></div>';
+    que_text.innerHTML = que_tag; 
+    option_list.innerHTML = option_tag; 
+    
+    const option = option_list.querySelectorAll(".option");
+
+    // onclick para todas las opcionees
+    for(i=0; i < option.length; i++){
+        option[i].setAttribute("onclick", "optionSelected(this)");
+    }
+}
+if(id == 6){
+    let que_tag = '<span>'+ questions6[index].numb + ". " + questions6[index].question +'</span>';
+    let option_tag = '<div class="option"><span>'+ questions6[index].options[0] +'</span></div>'
+    + '<div class="option"><span>'+ questions6[index].options[1] +'</span></div>'
+    + '<div class="option"><span>'+ questions6[index].options[2] +'</span></div>'
+    + '<div class="option"><span>'+ questions6[index].options[3] +'</span></div>';
     que_text.innerHTML = que_tag; 
     option_list.innerHTML = option_tag; 
     
@@ -234,7 +268,7 @@ if(id == 8){
             if(option_list.children[i].textContent == correcAns){ 
                 option_list.children[i].setAttribute("class", "option correct"); 
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                alert("Auto selected correct answer.");
+                console.log("Auto selected correct answer.");
             }
         }
     }
@@ -265,7 +299,38 @@ if(id == 7){
             if(option_list.children[i].textContent == correcAns){ 
                 option_list.children[i].setAttribute("class", "option correct"); 
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                alert("Auto selected correct answer.");
+                console.log("Auto selected correct answer.");
+            }
+        }
+    }
+    for(i=0; i < allOptions; i++){
+        option_list.children[i].classList.add("disabled");
+    }
+    next_btn.classList.add("show"); 
+}
+if(id == 6){
+    clearInterval(counter); 
+    clearInterval(counterLine); 
+    let userAns = answer.textContent; 
+    let correcAns = questions6[que_count].answer; 
+    const allOptions = option_list.children.length; 
+    
+    if(userAns == correcAns){ 
+        userScore += 1; 
+        answer.classList.add("correct"); 
+        answer.insertAdjacentHTML("beforeend", tickIconTag); 
+        console.log("Correct Answer");
+        console.log("Your correct answers = " + userScore);
+    }else{
+        answer.classList.add("incorrect"); 
+        answer.insertAdjacentHTML("beforeend", crossIconTag); 
+        console.log("Wrong Answer");
+
+        for(i=0; i < allOptions; i++){
+            if(option_list.children[i].textContent == correcAns){ 
+                option_list.children[i].setAttribute("class", "option correct"); 
+                option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
+                console.log("Auto selected correct answer.");
             }
         }
     }
@@ -314,7 +379,7 @@ function startTimer(time){
                 if(option_list.children[i].textContent == correcAns){ 
                     option_list.children[i].setAttribute("class", "option correct"); 
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                    alert("Time Off: Auto selected correct answer.");
+                    console.log("Time Off: Auto selected correct answer.");
                 }
             }
             for(i=0; i < allOptions; i++){
@@ -329,7 +394,7 @@ function startTimer(time){
                 if(option_list.children[i].textContent == correcAns){ 
                     option_list.children[i].setAttribute("class", "option correct"); 
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                    alert("Time Off: Auto selected correct answer.");
+                    console.log("Time Off: Auto selected correct answer.");
                 }
             }
             for(i=0; i < allOptions; i++){
@@ -344,7 +409,7 @@ function startTimer(time){
                 if(option_list.children[i].textContent == correcAns){ 
                     option_list.children[i].setAttribute("class", "option correct"); 
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                    alert("Time Off: Auto selected correct answer.");
+                    console.log("Time Off: Auto selected correct answer.");
                 }
             }
             for(i=0; i < allOptions; i++){
@@ -352,7 +417,21 @@ function startTimer(time){
             }
             next_btn.classList.add("show"); //muestra el boton siguiente
         }
-
+        if(id == 6){
+            let correcAns = questions6[que_count].answer; //extrae respuesta correcta de la lista
+            for(i=0; i < allOptions; i++){
+                //añade color e icono a la respuesta correcta autoseleccionada
+                if(option_list.children[i].textContent == correcAns){ 
+                    option_list.children[i].setAttribute("class", "option correct"); 
+                    option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
+                    console.log("Time Off: Auto selected correct answer.");
+                }
+            }
+            for(i=0; i < allOptions; i++){
+                option_list.children[i].classList.add("disabled"); //cuando el usuario selecciona una opcion deshabilota las demas
+            }
+            next_btn.classList.add("show"); //muestra el boton siguiente
+        }
     }
     }
 }
@@ -378,8 +457,12 @@ function queCounter(index){
         let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions8.length +'</p> Questions</span>';
         bottom_ques_counter.innerHTML = totalQueCounTag;  
         }
-        if(id == 7){
+    if(id == 7){
             let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions7.length +'</p> Questions</span>';
             bottom_ques_counter.innerHTML = totalQueCounTag;  
             }
+            if(id == 6){
+                let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions6.length +'</p> Questions</span>';
+                bottom_ques_counter.innerHTML = totalQueCounTag;  
+                }
 }
