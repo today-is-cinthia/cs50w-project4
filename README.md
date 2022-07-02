@@ -9,7 +9,8 @@ Destinada al aprendizaje didáctico y refuerzo de conocimientos básicos sobre e
 Cada feedback que envies en el formulario llegará directamente a mi correo luego de verificarte con reCAPTCHA así que ten en cuenta que lo leeré!
 
 REQUIREMENTS
-        Ejecuta pip install -r requirements.txt para correrlo.
+
+Ejecuta pip install -r requirements.txt para correrlo.
 
     Si tienes problemas con pip puedes utilizar el siguiente comando:
         py -m pip install -r requirements.txt
