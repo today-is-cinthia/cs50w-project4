@@ -127,6 +127,8 @@ def reviews(id):
     if idcomentario is not None:
         idcomentario = idcomentario[0]
 
+    print(idcomentario)
+
     if request.method == "POST":
         rating = int(request.form.get("rating"))
         comentario = request.form.get("comentario")
@@ -139,7 +141,19 @@ def reviews(id):
          INNER JOIN reviews ON users.id = reviews.id_user WHERE id_test = :id_test", {"id_test": id})
         reseñas = query.fetchall()
 
-    return render_template("reviews.html", test=test, reseñas=reseñas, idcomentario=idcomentario, id=id)
+        idcomen = db.execute("SELECT id FROM reviews WHERE id_test=:id_test",{"id_test":id}).fetchone()
+        if idcomen is not None:
+            idcomen = idcomen[0]
+        
+        esmio = db.execute("SELECT id_user FROM reviews WHERE id=:id",{"id": idcomen}).fetchone()
+        if esmio is not None:
+            esmio = esmio[0]
+
+
+        cur_user = session["user_id"]
+
+
+    return render_template("reviews.html", test=test, reseñas=reseñas, idcomentario=idcomentario, id=id,esmio=esmio, cur_user=cur_user)
 
 @app.route("/play/<id>")
 def play(id):
