@@ -1,6 +1,6 @@
 {% extends "layout.html" %} {% block title %} HOME {% endblock %} {% block body %}
 
-<button style="margin-left: 20%;" id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+<br><button id="botoncat"  style="background-color: rgb(70, 23, 143);" id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     type="button">Categories <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 
 <br><br> <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(352px, -12px);">
@@ -16,14 +16,15 @@
         </li>
     </ul>
 </div>
+<img id="imgmaya" src="/static/koreancastle.jpeg" alt="" srcset=""><br>
 
 
-<section class="text-gray-600 body-font">
+<section style="margin-top: -80px; margin-left: 2%;" class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto flex flex-wrap">
     <div class="flex flex-wrap -m-4">
       <div class="p-4 lg:w-1/2 md:w-full">
         {% for i in query %}
-        <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+        <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col bg-white">
           <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center bg-indigo-100 text-indigo-500 flex-shrink-0">
             <img src="{{i.imagen}}" alt="">
           </div>
@@ -37,7 +38,7 @@
               </svg>
             </a>
           </div>
-        </div>
+        </div><br>
         {% endfor %}
       </div>
     </div>

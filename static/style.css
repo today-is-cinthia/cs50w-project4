@@ -22,4 +22,30 @@
     #contenido{
         width: 600px;
     }
+    #home{
+      margin-left: 100px;
+    }
+    #seccion{
+      margin-left: 50px;
+    }
+    #img{
+      margin-left: 100px;
+    }
+    #imgmaya{
+      margin-left: 48px;
+    }
+    #botoncat{
+      margin-left: 3.8%;
+    }
   }
+  @media (max-width: 500px) {
+    #botoncat{
+      margin-left: 25%;
+    }
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
